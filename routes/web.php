@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutContentController;
+use App\Http\Controllers\AboutInfoController;
+use App\Http\Controllers\AboutProgressionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/backoffice', function () {
+    return view('backoffice');
+});
+
+
+Route::get('/backoffice/about', function () {
+    return view('pages.bo.about');
+});
+
+Route::get('/backoffice/about/content',[AboutContentController::class, 'index']);
+Route::get('/backoffice/about/progress',[AboutProgressionController::class, 'index']);
+Route::get('/backoffice/about/perso',[AboutInfoController::class, 'index']);
+
